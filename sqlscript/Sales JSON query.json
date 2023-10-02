@@ -1,0 +1,17 @@
+{
+	"name": "Sales JSON query",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT JSON_VALUE(Doc, '$.SalesOrderNumber') AS OrderNumber,\n        JSON_VALUE(Doc, '$.CustomerName') AS Customer,\n        Doc\n\nFROM\n    OPENROWSET(\n        BULK 'https://datalakea0l3xfo.dfs.core.windows.net/files/sales/json/',\n        FORMAT = 'CSV',\n        FIELDQUOTE = '0x0b',\n        FIELDTERMINATOR ='0x0b',\n        ROWTERMINATOR = '0x0b'\n    )\n    WITH (\n        Doc NVARCHAR(MAX)\n    ) AS rows\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

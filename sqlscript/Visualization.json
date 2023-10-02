@@ -1,0 +1,17 @@
+{
+	"name": "Visualization",
+	"properties": {
+		"content": {
+			"query": " SELECT YEAR(OrderDate) AS OrderYear,\n        SUM((UnitPrice * Quantity) + TaxAmount) AS GrossRevenue\n FROM dbo.orders\n GROUP BY YEAR(OrderDate)\n ORDER BY OrderYear;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "Sales",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
